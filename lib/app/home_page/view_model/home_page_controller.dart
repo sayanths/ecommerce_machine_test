@@ -1,4 +1,5 @@
 import 'package:ecommercetest/app/cart/view/cart.dart';
+import 'package:ecommercetest/app/permium/view/premium.dart';
 import 'package:flutter/cupertino.dart';
 
 class HomePageController extends ChangeNotifier {
@@ -23,6 +24,6 @@ class HomePageController extends ChangeNotifier {
 
   List<Widget> choiceListWidget = [
     const ReviwCart(),
-    const ReviwCart(),
+    const Premium(),
   ];
 }

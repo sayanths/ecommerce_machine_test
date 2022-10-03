@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/choice_chip.dart';
+import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/search.dart';
 import 'package:ecommercetest/app/home_page/view_model/home_page_controller.dart';
 import 'package:flutter/material.dart';
@@ -112,28 +113,84 @@ class HomePage extends StatelessWidget {
               ],
             ),
             LimitedBox(
-                maxHeight: 450,
-                child: Consumer<HomePageController>(
-                  builder: (context, value, _) {
-                    return ListView.separated(
-                      separatorBuilder: (context, index) {
-                        return SizedBox(height: 3,);
-                      },
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          height: 150,
-                          width: 150,
-                          color: Colors.red,
-                        );
-                      },
-                    );
-                  },
-                )),
-               
+              maxHeight: 450,
+              child: Consumer<HomePageController>(
+                builder: (context, value, _) {
+                  return ListView.separated(
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        height: 3,
+                      );
+                    },
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        height: 150,
+                        width: 150,
+                        color: const Color.fromARGB(255, 132, 13, 5),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    height: 150,
+                                    width: 100,
+                                    color: Colors.red,
+                                    child: Image.network(
+                                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXjMVAUsG7PXi_WJt9L-TJrS0YKBOae4cD6jfqlmCY-o-uYg0hjW6MsgJLTf09_6uD6A4&usqp=CAU"),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 3,
+                                  child: Container(
+                                    height: 150,
+                                    width: 100,
+                                    color: const Color.fromARGB(
+                                        255, 219, 178, 175),
+                                    child: Column(
+                                      children: [
+                                        const Text("Mr. Gold Sunflower "),
+                                        const Text("1 L"),
+                                        const Text("139"),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                                              child: Container(
+                                                height: 25,
+                                                width: 60,
+                                                color: Colors.green,
+                                                child: const Center(
+                                                  child: Text(
+                                                    "18% off",
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            const CounterWidget(),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
