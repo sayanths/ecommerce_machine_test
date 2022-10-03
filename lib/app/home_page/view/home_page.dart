@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommercetest/app/home_page/view/widgets/choice_chip.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/search.dart';
+import 'package:ecommercetest/app/home_page/view_model/home_page_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,7 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
             Row(
               children: [
@@ -33,20 +36,23 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                IconButton(
+                    onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
               ],
             ),
             ListTile(
               leading: const Icon(Icons.place),
               title: const Text("Delivery to"),
               subtitle: const Text("Yelahanka,Banglore"),
-              trailing:
-                  TextButton(onPressed: () {}, child: const Text("Change")),
+              trailing: TextButton(
+                onPressed: () {},
+                child: const Text("Change"),
+              ),
             ),
             const Divider(
               height: 1,
               thickness: 1,
             ),
-           
             CarouselSlider(
               options: CarouselOptions(height: 180.0),
               items: [1, 2, 3, 4, 5].map((i) {
@@ -63,14 +69,12 @@ class HomePage extends StatelessWidget {
                 );
               }).toList(),
             ),
-            
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: const Text("Latest")),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child:
+                  Align(alignment: Alignment.centerLeft, child: Text("Latest")),
             ),
-             const Divider(
+            const Divider(
               height: 1,
               thickness: 1,
             ),
@@ -97,11 +101,36 @@ class HomePage extends StatelessWidget {
                     );
                   })),
             ),
-             const Divider(
+            const Divider(
               height: 1,
               thickness: 1,
             ),
-            ChoiceChip(label: Text("ds"), selected: true)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ChoiceChipWidget(),
+              ],
+            ),
+            LimitedBox(
+                maxHeight: 450,
+                child: Consumer<HomePageController>(
+                  builder: (context, value, _) {
+                    return ListView.separated(
+                      separatorBuilder: (context, index) {
+                        return SizedBox(height: 3,);
+                      },
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: 150,
+                          width: 150,
+                          color: Colors.red,
+                        );
+                      },
+                    );
+                  },
+                )),
+               
           ],
         ),
       ),
