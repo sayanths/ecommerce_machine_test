@@ -25,7 +25,7 @@ class NormalCategoryWidget extends StatelessWidget {
                     height: 150,
                     width: 100,
                     child: Image.network(
-                        "https://www.thehindu.com/life-and-style/food/hxihzc/article25451391.ece/alternates/LANDSCAPE_1200/9MPIYENGARBAKERY3"),
+                        "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps10669_BCC1570481D6_RMS-2.jpg"),
                   ),
                 ),
                 Expanded(
@@ -38,7 +38,7 @@ class NormalCategoryWidget extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text("Mr. Gold Sunflower "),
+                            const Text(" Gold Sunflower "),
                             const SizedBox(
                               width: 70,
                             ),

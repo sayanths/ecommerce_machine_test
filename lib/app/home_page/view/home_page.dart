@@ -1,9 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommercetest/app/core/colors.dart';
-import 'package:ecommercetest/app/core/widgets.dart';
+
 import 'package:ecommercetest/app/home_page/view/widgets/choice_chip.dart';
-import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
-import 'package:ecommercetest/app/home_page/view/widgets/custom_list_tile.dart';
+
 import 'package:ecommercetest/app/home_page/view/widgets/search.dart';
 import 'package:ecommercetest/app/home_page/view_model/home_page_controller.dart';
 import 'package:flutter/material.dart';
