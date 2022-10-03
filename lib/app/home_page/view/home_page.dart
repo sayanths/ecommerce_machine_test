@@ -30,7 +30,10 @@ class HomePage extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 5),
                     height: 45,
                     width: 55,
-                    color: Colors.red,
+                    child: Image.asset(
+                      "assets/logo.png",
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Expanded(
@@ -68,16 +71,16 @@ class HomePage extends StatelessWidget {
                     return Container(
                       width: MediaQuery.of(context).size.width,
                       margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration:  BoxDecoration(
-                      image: DecorationImage(image: NetworkImage(i,),fit: BoxFit.cover)
-                      ),
-                      
-                      
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                i,
+                              ),
+                              fit: BoxFit.cover)),
                     );
                   },
                 );
               }).toList(),
-              
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
