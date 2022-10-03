@@ -1,3 +1,4 @@
+import 'package:ecommercetest/app/cart/view/cart.dart';
 import 'package:flutter/cupertino.dart';
 
 class HomePageController extends ChangeNotifier {
@@ -10,10 +11,8 @@ class HomePageController extends ChangeNotifier {
   ];
 
   List<String> choiceList = [
-    'Luxury',
-    'Sedan',
-    'Vintage',
-    'Xuv Type',
+    'Tamilnadu',
+    'Permium',
   ];
 
   void choicChi(bool value, int index) {
@@ -21,9 +20,9 @@ class HomePageController extends ChangeNotifier {
     defaultChoicIndex = index;
     notifyListeners();
   }
-List<Widget> choiceListWidget = [
-   
-    
-  ];
 
+  List<Widget> choiceListWidget = [
+    const ReviwCart(),
+    const ReviwCart(),
+  ];
 }
