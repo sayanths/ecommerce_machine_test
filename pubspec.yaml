@@ -40,6 +40,8 @@ dependencies:
   carousel_slider: ^4.1.1
   dio: ^4.0.6
 
+  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

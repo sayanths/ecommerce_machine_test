@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommercetest/app/core/colors.dart';
 
@@ -14,6 +16,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final home = context.read<HomePageController>();
+    log(home.toString());
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -58,18 +62,22 @@ class HomePage extends StatelessWidget {
             ),
             CarouselSlider(
               options: CarouselOptions(height: 180.0),
-              items: [1, 2, 3, 4, 5].map((i) {
+              items: home.list.map((i) {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
                       width: MediaQuery.of(context).size.width,
                       margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: const BoxDecoration(color: Colors.amber),
-
+                      decoration:  BoxDecoration(
+                      image: DecorationImage(image: NetworkImage(i,),fit: BoxFit.cover)
+                      ),
+                      
+                      
                     );
                   },
                 );
               }).toList(),
+              
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -117,17 +125,7 @@ class HomePage extends StatelessWidget {
               maxHeight: 450,
               child: Consumer<HomePageController>(
                 builder: (context, value, _) {
-                  return ListView.separated(
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 3,
-                      );
-                    },
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return value.choiceListWidget[value.defaultChoicIndex];
-                    },
-                  );
+                  return value.choiceListWidget[value.defaultChoicIndex];
                 },
               ),
             ),

@@ -1,13 +1,16 @@
 import 'package:ecommercetest/app/core/colors.dart';
 import 'package:ecommercetest/app/core/widgets.dart';
+import 'package:ecommercetest/app/home_page/model/model.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
+import 'package:ecommercetest/app/home_page/view_model/home_page_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
 
 class NormalCategoryWidget extends StatelessWidget {
+  //final FruitsModel? data;
   const NormalCategoryWidget({
     Key? key,
+   // this.data,
   }) : super(key: key);
 
   @override
