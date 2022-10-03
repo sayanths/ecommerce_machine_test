@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
                     height: 45,
                     width: 55,
                     color: Colors.red,
@@ -26,7 +26,8 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   flex: 6,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 15),
                     child: Search(
                       size: size,
                     ),
@@ -34,42 +35,73 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-           ListTile(
-            leading: Icon(Icons.place),
-            title: Text("Delivery to"),
-            subtitle: Text("Yelahanka,Banglore"),
-            trailing: TextButton(onPressed: (){}, child: Text("Change")),
-           ),
-            Divider(
+            ListTile(
+              leading: const Icon(Icons.place),
+              title: const Text("Delivery to"),
+              subtitle: const Text("Yelahanka,Banglore"),
+              trailing:
+                  TextButton(onPressed: () {}, child: const Text("Change")),
+            ),
+            const Divider(
               height: 1,
               thickness: 1,
             ),
-            Container(
-              height: 30,
-              width: 400,
-              color: Color.fromARGB(255, 206, 246, 120),
-              child: Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: Text("Delivery by oct 5",textAlign: TextAlign.start,),
-              ),
+           
+            CarouselSlider(
+              options: CarouselOptions(height: 180.0),
+              items: [1, 2, 3, 4, 5].map((i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: const BoxDecoration(color: Colors.amber),
+
+                      /// child: Text('text $i', style: TextStyle(fontSize: 16.0),)
+                    );
+                  },
+                );
+              }).toList(),
             ),
-             CarouselSlider(
-  options: CarouselOptions(height: 180.0),
-  items: [1,2,3,4,5].map((i) {
-    return Builder(
-      builder: (BuildContext context) {
-        return Container(
-          width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.symmetric(horizontal: 5.0),
-          decoration: BoxDecoration(
-            color: Colors.amber
-          ),
-         /// child: Text('text $i', style: TextStyle(fontSize: 16.0),)
-        );
-      },
-    );
-  }).toList(),
-)
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: const Text("Latest")),
+            ),
+             const Divider(
+              height: 1,
+              thickness: 1,
+            ),
+            LimitedBox(
+              maxHeight: 100,
+              child: ListView.builder(
+                  padding: const EdgeInsets.all(2),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: ((context, index) {
+                    return const Padding(
+                      padding: EdgeInsets.all(2.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.orange,
+                        radius: 40,
+                        child: Padding(
+                          padding: EdgeInsets.all(3.0),
+                          child: CircleAvatar(
+                            radius: 35,
+                            backgroundColor: Color.fromARGB(255, 181, 244, 54),
+                          ),
+                        ),
+                      ),
+                    );
+                  })),
+            ),
+             const Divider(
+              height: 1,
+              thickness: 1,
+            ),
+            ChoiceChip(label: Text("ds"), selected: true)
           ],
         ),
       ),
