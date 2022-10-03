@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:ecommercetest/app/core/colors.dart';
 import 'package:ecommercetest/app/core/widgets.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-
-class PermiumListTile extends StatelessWidget {
-  const PermiumListTile({
+class NormalCategoryWidget extends StatelessWidget {
+  const NormalCategoryWidget({
     Key? key,
   }) : super(key: key);
 
@@ -61,7 +62,7 @@ class PermiumListTile extends StatelessWidget {
                                 color: green,
                                 child: const Center(
                                   child: Text(
-                                    "18% off",
+                                    "54% off",
                                   ),
                                 ),
                               ),

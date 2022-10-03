@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:ecommercetest/app/core/colors.dart';
 import 'package:ecommercetest/app/core/widgets.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
+import 'package:flutter/material.dart';
 
-
-class PermiumListTile extends StatelessWidget {
-  const PermiumListTile({
+class CustomListTile extends StatelessWidget {
+  const CustomListTile({
     Key? key,
   }) : super(key: key);
 
@@ -24,7 +23,7 @@ class PermiumListTile extends StatelessWidget {
                     height: 150,
                     width: 100,
                     child: Image.network(
-                        "https://www.thehindu.com/life-and-style/food/hxihzc/article25451391.ece/alternates/LANDSCAPE_1200/9MPIYENGARBAKERY3"),
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXjMVAUsG7PXi_WJt9L-TJrS0YKBOae4cD6jfqlmCY-o-uYg0hjW6MsgJLTf09_6uD6A4&usqp=CAU"),
                   ),
                 ),
                 Expanded(

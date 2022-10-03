@@ -1,5 +1,5 @@
-import 'package:ecommercetest/app/cart/view/cart.dart';
-import 'package:ecommercetest/app/permium/view/premium.dart';
+import 'package:ecommercetest/app/home_page/view/widgets/custom_list_tile.dart';
+import 'package:ecommercetest/app/normal_category/view/normal_category.dart';
 import 'package:flutter/cupertino.dart';
 
 class HomePageController extends ChangeNotifier {
@@ -23,7 +23,7 @@ class HomePageController extends ChangeNotifier {
   }
 
   List<Widget> choiceListWidget = [
-    const ReviwCart(),
-    const Premium(),
+    const CustomListTile(),
+    const NormalCategoryWidget(),
   ];
 }
