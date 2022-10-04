@@ -1,12 +1,14 @@
+import 'package:ecommercetest/app/home_page/model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommercetest/app/core/colors.dart';
 import 'package:ecommercetest/app/core/widgets.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
 
-
 class PermiumListTile extends StatelessWidget {
+  final FruitsModel? data;
   const PermiumListTile({
     Key? key,
+    this.data,
   }) : super(key: key);
 
   @override
@@ -37,7 +39,7 @@ class PermiumListTile extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text("Mr. Gold Sunflower "),
+                            Text(data!.pName.toString()),
                             const SizedBox(
                               width: 70,
                             ),

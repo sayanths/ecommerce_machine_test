@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class NormalCategoryWidget extends StatelessWidget {
-  //final FruitsModel? data;
+  final FruitsModel? data;
   const NormalCategoryWidget({
-    Key? key,
+    Key? key,  this.data,
    // this.data,
   }) : super(key: key);
 
@@ -41,7 +41,7 @@ class NormalCategoryWidget extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(" Gold Sunflower "),
+                             Text(data!.pName.toString()),
                             const SizedBox(
                               width: 70,
                             ),

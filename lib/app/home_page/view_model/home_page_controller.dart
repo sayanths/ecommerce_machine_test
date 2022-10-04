@@ -1,5 +1,7 @@
+import 'dart:developer';
+
+import 'package:dio/dio.dart';
 import 'package:ecommercetest/app/home_page/model/model.dart';
-import 'package:ecommercetest/app/home_page/service/api_service.dart';
 
 import 'package:ecommercetest/app/normal_category/view/normal_category.dart';
 import 'package:ecommercetest/app/permium/view/premium.dart';
@@ -11,6 +13,8 @@ class HomePageController extends ChangeNotifier {
     fetchData();
   }
   List<FruitsModel?> model = [];
+  List<FruitsModel?> normal = [];
+  List<FruitsModel?> premuim = [];
   bool newValue = false;
   int defaultChoicIndex = 0;
   final list = [
@@ -35,48 +39,58 @@ class HomePageController extends ChangeNotifier {
     Consumer<HomePageController>(
       builder: (context, value, _) {
         return ListView.builder(
-            itemCount: 10,
+            itemCount: value.normal.length,
             itemBuilder: (context, index) {
-              // final data = value.model[index];
-              return const NormalCategoryWidget();
+              final data = value.normal[index];
+              return NormalCategoryWidget(data: data);
             });
       },
     ),
     Consumer<HomePageController>(
       builder: (context, value, _) {
         return ListView.builder(
-            itemCount: 5,
+            itemCount: value.premuim.length,
             itemBuilder: (context, index) {
-              return const PermiumListTile();
+              final data = value.premuim[index];
+              return PermiumListTile(data: data);
             });
       },
     )
   ];
 
-  // fetchData() async {
-  //   FruitsModel? response = await ServiceApi().getAPI();
-
-  //   if (response != null) {
-  //        model.clear();
-  //       model.addAll(response);
-
-  //       notifyListeners();
-
-  //    } else {
-  //       print("ds");
-  //     }
-  //   }
   String url = 'https://run.mocky.io/v3/f5dfb61d-cee5-4717-8359-c5e3869fa3ec';
   fetchData() async {
-    var response = await DioService().getMethod(url: url);
-
+    Response response = await Dio().get(url);
+    log(response.toString());
     if (response.statusCode == 200) {
       response.data.forEach(
         (element) {
+          model.clear();
           model.add(FruitsModel.fromJson(element));
+          filteredData();
+          filteredDataNormal();
         },
       );
       notifyListeners();
     }
+  }
+
+  filteredData() {
+    for (var element in model) {
+      if (element?.pCategory == 'Premium') {
+        premuim.add(element);
+      }
+    }
+    log(premuim.toString());
+  }
+
+  filteredDataNormal() {
+    for (var item in model) {
+      if (item?.pCategory != 'Premium') {
+        normal.add(item);
+        notifyListeners();
+      }
+    }
+    log(normal.toString());
   }
 }

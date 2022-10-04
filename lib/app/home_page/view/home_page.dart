@@ -107,7 +107,9 @@ class HomePage extends StatelessWidget {
                           padding: EdgeInsets.all(3.0),
                           child: CircleAvatar(
                             radius: 35,
-                            backgroundColor: Color.fromARGB(255, 181, 244, 54),
+                            backgroundImage: NetworkImage(
+                              "https://www.irandriedfruit.com/wp-content/uploads/2019/06/Vegetables.jpg",
+                            ),
                           ),
                         ),
                       ),
