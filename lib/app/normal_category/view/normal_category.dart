@@ -2,15 +2,16 @@ import 'package:ecommercetest/app/core/colors.dart';
 import 'package:ecommercetest/app/core/widgets.dart';
 import 'package:ecommercetest/app/home_page/model/model.dart';
 import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
-import 'package:ecommercetest/app/home_page/view_model/home_page_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class NormalCategoryWidget extends StatelessWidget {
+  final String? localImg;
   final FruitsModel? data;
   const NormalCategoryWidget({
-    Key? key,  this.data,
-   // this.data,
+    Key? key,
+    this.data,
+    this.localImg,
+    // this.data,
   }) : super(key: key);
 
   @override
@@ -27,8 +28,7 @@ class NormalCategoryWidget extends StatelessWidget {
                   child: SizedBox(
                     height: 150,
                     width: 100,
-                    child: Image.network(
-                        "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps10669_BCC1570481D6_RMS-2.jpg"),
+                    child: Image.network(localImg.toString()),
                   ),
                 ),
                 Expanded(
@@ -41,7 +41,7 @@ class NormalCategoryWidget extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                             Text(data!.pName.toString()),
+                            Text(data!.pName.toString()),
                             const SizedBox(
                               width: 70,
                             ),

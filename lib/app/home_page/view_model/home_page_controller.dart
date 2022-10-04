@@ -42,7 +42,8 @@ class HomePageController extends ChangeNotifier {
             itemCount: value.normal.length,
             itemBuilder: (context, index) {
               final data = value.normal[index];
-              return NormalCategoryWidget(data: data);
+              final localImage = value.normalImage[index];
+              return NormalCategoryWidget(data: data,localImg :localImage);
             });
       },
     ),
@@ -93,4 +94,9 @@ class HomePageController extends ChangeNotifier {
     }
     log(normal.toString());
   }
+
+  List normalImage = [
+    'https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg',
+    'https://img.freepik.com/free-vector/vector-ripe-yellow-banana-bunch-isolated-white-background_1284-45456.jpg?w=2000',
+  ];
 }
