@@ -6,9 +6,11 @@ import 'package:ecommercetest/app/home_page/view/widgets/counter.dart';
 
 class PermiumListTile extends StatelessWidget {
   final FruitsModel? data;
+  final String? premiumImages;
   const PermiumListTile({
     Key? key,
     this.data,
+    this.premiumImages ,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class PermiumListTile extends StatelessWidget {
                     height: 150,
                     width: 100,
                     child: Image.network(
-                        "https://www.thehindu.com/life-and-style/food/hxihzc/article25451391.ece/alternates/LANDSCAPE_1200/9MPIYENGARBAKERY3"),
+                        premiumImages.toString()),
                   ),
                 ),
                 Expanded(

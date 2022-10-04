@@ -43,7 +43,7 @@ class HomePageController extends ChangeNotifier {
             itemBuilder: (context, index) {
               final data = value.normal[index];
               final localImage = value.normalImage[index];
-              return NormalCategoryWidget(data: data,localImg :localImage);
+              return NormalCategoryWidget(data: data, localImg: localImage);
             });
       },
     ),
@@ -53,7 +53,11 @@ class HomePageController extends ChangeNotifier {
             itemCount: value.premuim.length,
             itemBuilder: (context, index) {
               final data = value.premuim[index];
-              return PermiumListTile(data: data);
+              final localImage = value.premiumImage[index];
+              return PermiumListTile(
+                data: data,
+                premiumImages: localImage,
+              );
             });
       },
     )
@@ -98,5 +102,10 @@ class HomePageController extends ChangeNotifier {
   List normalImage = [
     'https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg',
     'https://img.freepik.com/free-vector/vector-ripe-yellow-banana-bunch-isolated-white-background_1284-45456.jpg?w=2000',
+  ];
+
+  List premiumImage = [
+    'https://www.collinsdictionary.com/images/full/apple_158989157.jpg',
+    'https://media.istockphoto.com/photos/orange-slice-picture-id1163872349?k=20&m=1163872349&s=612x612&w=0&h=1oVhcd6gYzgvDCVJVqJN_6mPUnHCd9uYQk5rZ3Il_9s=',
   ];
 }
