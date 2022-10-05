@@ -11,7 +11,6 @@ class NormalCategoryWidget extends StatelessWidget {
     Key? key,
     this.data,
     this.localImg,
-    // this.data,
   }) : super(key: key);
 
   @override
@@ -41,18 +40,44 @@ class NormalCategoryWidget extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(data!.pName.toString()),
+                            Text(
+                              data!.pName.toString(),
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
                             const SizedBox(
                               width: 70,
                             ),
                             IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.favorite)),
+                                icon: const Icon(
+                                  Icons.favorite,
+                                  color: red,
+                                )),
                           ],
                         ),
-                        const Text("1 L"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Qty : ",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              data!.pAvailability.toString(),
+                              style: const TextStyle(fontSize: 15, color: red),
+                            ),
+                          ],
+                        ),
                         height10,
-                        const Text("139"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("₹ "),
+                            Text(data!.pCost.toString()),
+                          ],
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -66,11 +91,12 @@ class NormalCategoryWidget extends StatelessWidget {
                                 child: const Center(
                                   child: Text(
                                     "54% off",
+                                    style: TextStyle(color: white),
                                   ),
                                 ),
                               ),
                             ),
-                            const CounterWidget(),
+                            CounterWidget(data: data),
                           ],
                         ),
                       ],

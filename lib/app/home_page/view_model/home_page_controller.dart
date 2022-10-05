@@ -12,6 +12,7 @@ class HomePageController extends ChangeNotifier {
   HomePageController() {
     fetchData();
   }
+
   List<FruitsModel?> model = [];
   List<FruitsModel?> normal = [];
   List<FruitsModel?> premuim = [];

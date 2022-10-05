@@ -10,7 +10,7 @@ class PermiumListTile extends StatelessWidget {
   const PermiumListTile({
     Key? key,
     this.data,
-    this.premiumImages ,
+    this.premiumImages,
   }) : super(key: key);
 
   @override
@@ -27,8 +27,7 @@ class PermiumListTile extends StatelessWidget {
                   child: SizedBox(
                     height: 150,
                     width: 100,
-                    child: Image.network(
-                        premiumImages.toString()),
+                    child: Image.network(premiumImages.toString()),
                   ),
                 ),
                 Expanded(
@@ -41,18 +40,41 @@ class PermiumListTile extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(data!.pName.toString()),
+                            Text(
+                              data!.pName.toString(),
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
                             const SizedBox(
                               width: 70,
                             ),
                             IconButton(
                                 onPressed: () {},
-                                icon: const Icon(Icons.favorite)),
+                                icon: const Icon(Icons.favorite,color: red,)),
                           ],
                         ),
-                        const Text("1 L"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Qty : ",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              data!.pAvailability.toString(),
+                              style: const TextStyle(fontSize: 15, color: red),
+                            ),
+                          ],
+                        ),
                         height10,
-                        const Text("139"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("₹ "),
+                            Text(data!.pCost.toString()),
+                          ],
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -66,6 +88,8 @@ class PermiumListTile extends StatelessWidget {
                                 child: const Center(
                                   child: Text(
                                     "18% off",
+                                    style:
+                                        TextStyle(fontSize: 15, color: white),
                                   ),
                                 ),
                               ),
